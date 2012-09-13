@@ -75,7 +75,8 @@ module Capybara::Poltergeist
     end
 
     def visit(path)
-      browser.visit app_server.url(path), @headers
+      url = "http://#{app_server.host}:#{app_server.port}" + path.to_s
+      browser.visit url, @headers
     end
 
     def current_url
